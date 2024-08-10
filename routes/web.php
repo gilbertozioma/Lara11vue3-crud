@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FrontendController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::inertia('/contact', 'Frontend/Contact')->name('contact');
 
+Route::resource('/products', ProductController::class);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
