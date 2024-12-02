@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index() 
     {
-        return Inertia::render('Frontend/Home');
+        $products = Product::all();
+        return Inertia::render('Frontend/Home', compact('products'));
 
         // return Inertia::render('Welcome', [
         //     'canLogin' => Route::has('login'),
