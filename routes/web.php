@@ -11,6 +11,15 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::inertia('/contact', 'Frontend/Contact')->name('contact');
 
+// Route::get('/', function () {
+//     return Inertia::render('FrontendLayout', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'aboutUsPage' => Route::has('about'),
+//         'contactPage' => Route::has('contact'),
+//     ]);
+// });
+
 Route::resource('/products', ProductController::class);
 
 Route::get('/dashboard', function () {
